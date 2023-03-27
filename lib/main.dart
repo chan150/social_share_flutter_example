@@ -1,3 +1,4 @@
+import 'package:appinio_social_share/appinio_social_share.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -38,9 +39,17 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  AppinioSocialShare appinioSocialShare = AppinioSocialShare();
+
   int _counter = 0;
 
-  void _incrementCounter() {
+  void _incrementCounter() async {
+    /// https://pub.dev/packages/appinio_social_share
+    ///
+
+    String response = await appinioSocialShare.shareToTwitter('test');
+    print(response);
+
     setState(() {
       _counter++;
     });
